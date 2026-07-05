@@ -43,7 +43,7 @@ export function useGuidedTour(spacerRef: React.RefObject<HTMLDivElement | null>)
       const currentTarget = TARGET_PROGRESS[activeStep];
 
       // Scroll Down -> Trigger Jump
-      if (e.velocity > 0 && progress > currentTarget + SCROLL_THRESHOLD) {
+      if ((e as any).velocity > 0 && progress > currentTarget + SCROLL_THRESHOLD) {
         if (activeStep < TARGET_PROGRESS.length - 1) {
           const nextStep = activeStep + 1;
           setActiveStep(nextStep);
@@ -65,7 +65,7 @@ export function useGuidedTour(spacerRef: React.RefObject<HTMLDivElement | null>)
         }
       }
       // Scroll Up -> Abort Guided Tour
-      else if (e.velocity < 0 && progress < currentTarget - SCROLL_THRESHOLD) {
+      else if ((e as any).velocity < 0 && progress < currentTarget - SCROLL_THRESHOLD) {
         setIsGuidedMode(false);
       }
     };
