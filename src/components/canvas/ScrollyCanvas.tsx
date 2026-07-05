@@ -34,7 +34,7 @@ function drawCover(
   } else {
     drawH = canvasH;
     drawW = canvasH * imgAspect;
-    offsetX = (canvasW - drawW) / 2;
+    offsetX = (canvasW - drawW) * 0.85; // Anchor to the right where the model is
     offsetY = 0;
   }
 
@@ -122,7 +122,7 @@ export function useScrollyCanvas({
     canvas.style.width = "100vw";
     canvas.style.height = "100vh";
     const ctx = canvas.getContext("2d");
-    if (ctx) ctx.scale(dpr, dpr);
+    // Ensure we don't scale the context cumulatively or incorrectly
     drawFrame(currentFrameRef.current);
   }, [canvasRef, drawFrame]);
 
