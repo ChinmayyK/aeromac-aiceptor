@@ -1,18 +1,8 @@
 "use client";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 
 export function Navbar() {
-  const { scrollYProgress } = useScroll();
-
-  // Navbar fades slightly on deep scroll
-  const navBg = useTransform(
-    scrollYProgress,
-    [0, 0.05],
-    ["rgba(5,7,11,0)", "rgba(5,7,11,0.7)"]
-  );
-
   return (
     <header>
       <motion.nav
@@ -25,12 +15,16 @@ export function Navbar() {
           left: 0,
           right: 0,
           zIndex: 100,
-          padding: "1.75rem 3rem",
+          width: "100%",
+          padding: "clamp(1rem, 2.2vw, 1.8rem) clamp(1.2rem, 2.8vw, 3rem)",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
-          background: navBg,
-          backdropFilter: "blur(0px)",
+          flexWrap: "wrap",
+          rowGap: "0.8rem",
+          background: "transparent",
+          boxShadow: "none",
+          backdropFilter: "none",
         }}
       >
       {/* Logo */}
@@ -39,10 +33,10 @@ export function Navbar() {
           src="/Logo.png"
           alt="AEROMAC DYNAMICS"
           style={{
-            height: "26px",
+            height: "clamp(2.25rem, 3.4vw, 3rem)",
             width: "auto",
             display: "block",
-            opacity: 0.95,
+            opacity: 0.98,
             filter: "brightness(0) invert(1)",
           }}
         />
@@ -52,9 +46,13 @@ export function Navbar() {
       <ul
         style={{
           display: "flex",
-          gap: "3rem",
+          flexWrap: "wrap",
+          gap: "clamp(0.3rem, 1vw, 1rem)",
           listStyle: "none",
           alignItems: "center",
+          justifyContent: "flex-end",
+          padding: 0,
+          margin: 0,
         }}
       >
         {["Technology", "Engineering", "Contact"].map((label) => (
@@ -64,21 +62,21 @@ export function Navbar() {
               data-magnetic
               style={{
                 fontFamily: "var(--font-inter), Inter, sans-serif",
-                fontSize: "0.625rem",
-                fontWeight: 300,
-                letterSpacing: "0.14em",
-                color: "#A8B2BD",
+                fontSize: "clamp(0.72rem, 0.85vw, 0.9rem)",
+                fontWeight: 500,
+                letterSpacing: "0.16em",
+                color: "#E7EDF5",
                 textDecoration: "none",
                 textTransform: "uppercase",
                 transition: "color 0.3s ease",
                 display: "inline-block",
-                padding: "0.5rem 1rem",
+                padding: "0.7rem 0.95rem",
               }}
               onMouseEnter={(e) => {
                 (e.target as HTMLAnchorElement).style.color = "#F8FAFC";
               }}
               onMouseLeave={(e) => {
-                (e.target as HTMLAnchorElement).style.color = "#A8B2BD";
+                (e.target as HTMLAnchorElement).style.color = "#E7EDF5";
               }}
             >
               <span className="magnetic-inner" style={{ display: "inline-block" }}>

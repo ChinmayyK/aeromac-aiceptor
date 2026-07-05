@@ -90,6 +90,7 @@ export function useScrollyCanvas({
 }: UseScrollyCanvasProps) {
   const framesRef = useRef<HTMLImageElement[]>([]);
   const currentFrameRef = useRef(0);
+  const targetFrameRef = useRef(0);
   const rafRef = useRef<number | null>(null);
   const isLoadedRef = useRef(false);
 
@@ -130,10 +131,15 @@ export function useScrollyCanvas({
     let lastFrame = -1;
 
     const loop = () => {
-      const frame = currentFrameRef.current;
-      if (frame !== lastFrame) {
-        drawFrame(frame);
-        lastFrame = frame;
+      const targetFrame = targetFrameRef.current;
+      const currentFrame = currentFrameRef.current;
+      const nextFrame = currentFrame + (targetFrame - currentFrame) * 0.16;
+      currentFrameRef.current = nextFrame;
+      const roundedFrame = Math.min(Math.max(Math.round(nextFrame), 0), FRAME_COUNT - 1);
+
+      if (roundedFrame !== lastFrame) {
+        drawFrame(roundedFrame);
+        lastFrame = roundedFrame;
       }
 
       // Smoothly interpolate mouse parallax coordinates
@@ -198,11 +204,7 @@ export function useScrollyCanvas({
         end: "bottom bottom",
         scrub: true,
         onUpdate: (self) => {
-          const frame = Math.min(
-            Math.round(self.progress * (FRAME_COUNT - 1)),
-            FRAME_COUNT - 1
-          );
-          currentFrameRef.current = frame;
+          targetFrameRef.current = self.progress * (FRAME_COUNT - 1);
         },
       });
     }

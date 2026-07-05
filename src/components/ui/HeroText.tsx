@@ -40,7 +40,10 @@ export function HeroText({ isVisible }: HeroTextProps) {
       transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
       style={{
         position: "fixed",
-        inset: 0,
+        top: "clamp(5rem, 7vh, 6.5rem)",
+        left: 0,
+        right: 0,
+        bottom: 0,
         zIndex: 20,
         pointerEvents: isVisible ? "auto" : "none",
         opacity: heroOpacity,
@@ -53,8 +56,8 @@ export function HeroText({ isVisible }: HeroTextProps) {
         transition={{ duration: 1, delay: 1.2, ease: [0.76, 0, 0.24, 1] }}
         style={{
           position: "absolute",
-          top: "6rem",
-          right: "3rem",
+          top: "clamp(1.25rem, 2.8vh, 6rem)",
+          right: "clamp(1.25rem, 2.8vw, 3rem)",
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-end",
@@ -64,7 +67,7 @@ export function HeroText({ isVisible }: HeroTextProps) {
         <p
           style={{
             fontFamily: "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
-            fontSize: "0.5rem",
+            fontSize: "0.72rem",
             letterSpacing: "0.28em",
             color: "#4AA8FF",
             textTransform: "uppercase",
@@ -75,9 +78,9 @@ export function HeroText({ isVisible }: HeroTextProps) {
         <p
           style={{
             fontFamily: "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
-            fontSize: "0.5rem",
+            fontSize: "0.68rem",
             letterSpacing: "0.2em",
-            color: "#1A2430",
+            color: "#DCE5EE",
             textTransform: "uppercase",
           }}
         >
@@ -89,9 +92,9 @@ export function HeroText({ isVisible }: HeroTextProps) {
       <div
         style={{
           position: "absolute",
-          bottom: "4.5rem",
-          left: "3rem",
-          right: "3rem",
+          bottom: "clamp(1.25rem, 3.2vh, 4.5rem)",
+          left: "clamp(1.25rem, 2.8vw, 3rem)",
+          right: "clamp(1.25rem, 2.8vw, 3rem)",
           display: "flex",
           flexDirection: "column",
           alignItems: "flex-start",
@@ -113,7 +116,7 @@ export function HeroText({ isVisible }: HeroTextProps) {
           <p
             style={{
               fontFamily: "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
-              fontSize: "0.5rem",
+              fontSize: "0.72rem",
               letterSpacing: "0.3em",
               color: "#4AA8FF",
               textTransform: "uppercase",
@@ -130,13 +133,13 @@ export function HeroText({ isVisible }: HeroTextProps) {
           animate={isVisible ? "show" : "hidden"}
           style={{
             fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
-            fontSize: "clamp(2rem, 4.8vw, 6rem)",
+            fontSize: "clamp(2.8rem, 5.3vw, 7rem)",
             fontWeight: 600,
             letterSpacing: "-0.03em",
             lineHeight: 0.92,
             color: "#F8FAFC",
-            maxWidth: "60vw",
-            marginBottom: "2rem",
+            maxWidth: "min(72vw, 900px)",
+            marginBottom: "clamp(1.1rem, 2.2vh, 2.2rem)",
           }}
         >
           {words.map((word, i) => (
@@ -158,7 +161,7 @@ export function HeroText({ isVisible }: HeroTextProps) {
           style={{
             display: "flex",
             alignItems: "flex-end",
-            gap: "4rem",
+            gap: "clamp(1.25rem, 3vw, 4rem)",
             flexWrap: "wrap",
           }}
         >
@@ -166,11 +169,11 @@ export function HeroText({ isVisible }: HeroTextProps) {
           <p
             style={{
               fontFamily: "var(--font-inter), Inter, sans-serif",
-              fontSize: "0.7rem",
-              fontWeight: 300,
+              fontSize: "0.95rem",
+              fontWeight: 400,
               lineHeight: 1.8,
-              color: "#A8B2BD",
-              maxWidth: "280px",
+              color: "#DCE5EE",
+              maxWidth: "min(360px, 82vw)",
             }}
           >
             Precision engineered aerospace intelligence built for modern
@@ -207,8 +210,8 @@ export function HeroText({ isVisible }: HeroTextProps) {
         transition={{ duration: 0.8, delay: 1.8 }}
         style={{
           position: "absolute",
-          right: "3rem",
-          bottom: "4.5rem",
+          right: "clamp(1.25rem, 2.8vw, 3rem)",
+          bottom: "clamp(1.25rem, 3.2vh, 4.5rem)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -226,9 +229,9 @@ export function HeroText({ isVisible }: HeroTextProps) {
         <p
           style={{
             fontFamily: "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
-            fontSize: "0.42rem",
+            fontSize: "0.5rem",
             letterSpacing: "0.22em",
-            color: "#1A2430",
+            color: "#DCE5EE",
             textTransform: "uppercase",
             writingMode: "vertical-rl",
             transform: "rotate(180deg)",

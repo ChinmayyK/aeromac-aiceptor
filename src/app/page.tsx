@@ -9,6 +9,7 @@ import { HeroText } from "@/components/ui/HeroText";
 import { ScrollSections } from "@/components/ui/ScrollSections";
 import { ParallaxGrid } from "@/components/ui/ParallaxGrid";
 import { TelemetryOverlay } from "@/components/ui/TelemetryOverlay";
+import { useGuidedTour } from "@/hooks/useGuidedTour";
 
 export default function Home() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
@@ -37,6 +38,8 @@ export default function Home() {
     onLoadProgress: handleLoadProgress,
     onLoaded: handleLoaded,
   });
+
+  useGuidedTour(spacerRef);
 
   // Prevent scroll while loading
   useEffect(() => {
@@ -121,7 +124,7 @@ export default function Home() {
       {heroVisible && <Navbar />}
 
       {/* ── Main Content Area (WCAG 1.3.1 Info and Relationships) ── */}
-      <main id="main-content">
+      <main id="main-content" style={{ paddingTop: "clamp(6.5rem, 8vh, 8rem)" }}>
         {/* ── Hero copy ────────────────────────────────── */}
         <HeroText isVisible={heroVisible} />
 

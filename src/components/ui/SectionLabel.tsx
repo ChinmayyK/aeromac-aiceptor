@@ -23,7 +23,7 @@ export function SectionLabel({ label, index, style }: SectionLabelProps) {
           style={{
             fontFamily:
               "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
-            fontSize: "0.5rem",
+            fontSize: "0.68rem",
             color: "#4AA8FF",
             letterSpacing: "0.1em",
           }}
@@ -42,9 +42,9 @@ export function SectionLabel({ label, index, style }: SectionLabelProps) {
         style={{
           fontFamily:
             "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
-          fontSize: "0.5rem",
+          fontSize: "0.68rem",
           letterSpacing: "0.28em",
-          color: "#A8B2BD",
+          color: "#DCE5EE",
           textTransform: "uppercase",
         }}
       >

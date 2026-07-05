@@ -102,7 +102,7 @@ function Panel({
             : verticalAlign === "bottom"
             ? "flex-end"
             : "center",
-        padding: paddingOverride ?? "9rem 3.5rem",
+        padding: paddingOverride ?? "clamp(2rem, 4.8vh, 9rem) clamp(1.25rem, 3vw, 3.5rem)",
         pointerEvents: "none",
         opacity,
         filter,
@@ -129,9 +129,9 @@ function SpecRow({ label, value }: { label: string; value: string }) {
       <span
         style={{
           fontFamily: "var(--font-ibm-plex-mono), 'IBM Plex Mono', monospace",
-          fontSize: "0.48rem",
+          fontSize: "0.58rem",
           letterSpacing: "0.2em",
-          color: "#1A2430",
+          color: "#DCE5EE",
           textTransform: "uppercase",
           width: "96px",
           flexShrink: 0,
@@ -142,9 +142,9 @@ function SpecRow({ label, value }: { label: string; value: string }) {
       <span
         style={{
           fontFamily: "var(--font-inter), Inter, sans-serif",
-          fontSize: "0.72rem",
-          fontWeight: 300,
-          color: "#A8B2BD",
+          fontSize: "0.9rem",
+          fontWeight: 400,
+          color: "#DCE5EE",
         }}
       >
         {value}
@@ -166,12 +166,12 @@ function SectionHeading({
     <h2
       style={{
         fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
-        fontSize: "clamp(1.8rem, 3.6vw, 4.8rem)",
+        fontSize: "clamp(2rem, 3.4vw, 3.9rem)",
         fontWeight: 600,
         letterSpacing: "-0.03em",
         lineHeight: 0.93,
         color: "#F8FAFC",
-        maxWidth,
+        maxWidth: `min(${maxWidth}, 72vw)`,
         marginBottom: "1.8rem",
         textAlign: align,
       }}
@@ -184,7 +184,7 @@ function SectionHeading({
 function SectionBody({
   children,
   align = "left",
-  maxWidth = "300px",
+  maxWidth = "360px",
 }: {
   children: React.ReactNode;
   align?: "left" | "right" | "center";
@@ -194,11 +194,11 @@ function SectionBody({
     <p
       style={{
         fontFamily: "var(--font-inter), Inter, sans-serif",
-        fontSize: "0.7rem",
-        fontWeight: 300,
-        lineHeight: 1.8,
-        color: "#A8B2BD",
-        maxWidth,
+        fontSize: "clamp(0.86rem, 1.1vw, 0.95rem)",
+        fontWeight: 400,
+        lineHeight: 1.85,
+        color: "#DCE5EE",
+        maxWidth: `min(${maxWidth}, 78vw)`,
         textAlign: align,
       }}
     >
@@ -215,7 +215,7 @@ function StatCallout({ value, unit, label }: { value: string; unit: string; labe
         <span
           style={{
             fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
-            fontSize: "clamp(2.5rem, 5vw, 6rem)",
+            fontSize: "clamp(2.8rem, 5vw, 6.6rem)",
             fontWeight: 600,
             letterSpacing: "-0.04em",
             color: "#F8FAFC",
@@ -416,12 +416,12 @@ export function ScrollSections() {
             <h2
               style={{
                 fontFamily: "var(--font-space-grotesk), 'Space Grotesk', sans-serif",
-                fontSize: "clamp(2rem, 4.5vw, 5.2rem)",
+                fontSize: "clamp(2.35rem, 4.2vw, 5.6rem)",
                 fontWeight: 600,
                 letterSpacing: "-0.04em",
                 lineHeight: 0.9,
                 color: "#F8FAFC",
-                marginBottom: "2.8rem",
+                marginBottom: "2.4rem",
               }}
             >
               THE FUTURE
